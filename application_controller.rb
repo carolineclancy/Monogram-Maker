@@ -10,7 +10,7 @@ class MyApp < Sinatra::Base
     erb :index
   end
 
-  post '/home' do
+  post '/' do
     puts params[:pattern]
     @caroline = User.new(params[:initials], params[:pattern], params[:font_color], params[:background_color], params[:border_color], params[:background_image], params[:font])
     redirect('/monogram')
