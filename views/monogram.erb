@@ -19,18 +19,17 @@
               <% if @caroline.initials.length <= 3 %>
                 <% @caroline.initials.upcase! %>
                 <% @caroline.initials.split(//) %>
-
+                  
                   <% if @caroline.font == "England Hand DB" %>
    
                     <% if @caroline.initials[1] != "C" or "E"%>
                       <font face="<%= @caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 300%;"><%= @caroline.initials[0]%></font>
                       <font face="<%= @caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 550%;"><%= @caroline.initials[1]%></font>
                       <font face="<%= @caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 300%;"><%= @caroline.initials[2]%></font>
-
-                    <% else %>
-                      <font face="<%= @caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 300%; padding-left: 10px"><%= @caroline.initials[0]%></font>
+                    <% elsif @caroline.initials[1] == "C" or "E" %>
+                      <font face="<%= @caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 300%;"><%= @caroline.initials[0]%></font>
                       <font face="<%= @caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 600%;"><%= @caroline.initials[1]%></font>
-                      <font face="<%=@caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 300%; padding-right: 30px;"><%= @caroline.initials[2]%></font>
+                      <font face="<%=@caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 300%; padding-right: 50px;"><%= @caroline.initials[2]%></font>
                     <% end %>
                 <% elsif @caroline.font != "England Hand DB" %>
                       <font face="<%= @caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 300%;"><%= @caroline.initials[0]%></font>
