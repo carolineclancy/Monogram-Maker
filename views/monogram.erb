@@ -16,7 +16,7 @@
         <div class="col-md-12">
 
             <h2 style=" margin-top: 230px; background-color: <%= @caroline.background_color %>; display:inline-block; font-size: 500px; text-align: center; padding: 20px; padding-right: 35px; padding-top: 55px; padding-bottom: 50px; border-radius: 50%; font-size: 30px; border-style: solid; border-color: <%= @caroline.border_color %>;" ><strong>
-              <% if @caroline.initials.length <= 3 %>
+              <% if @caroline.initials.length <= 4 %>
                 <% @caroline.initials.upcase! %>
                 <% @caroline.initials.split(//) %>
                   
