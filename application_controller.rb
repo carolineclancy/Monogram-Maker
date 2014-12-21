@@ -5,12 +5,12 @@ require_relative './models/final_project_backend.rb'
 
 
 class MyApp < Sinatra::Base
-  get '/home' do
+  get '/' do
     @patterns = ["http://www.hawthornethreads.com/images/camelot_cottons/300/jacqueline_savage_mcfee_paisley_please_preppy_harlequin_in_navy.jpg", "http://3.bp.blogspot.com/-2xrloB1ddhQ/Ud6_VZjhXJI/AAAAAAAAAH8/lnMuybGDc2Y/s1600/GetNautiWallpaper.jpg", "http://rlv.zcache.com/navy_blue_greek_key_pattern_napkins-rde07851f78eb439fb18b805217920d47_2cf00_8byvr_512.jpg"]
     erb :index
   end
 
-  post '/' do
+  post '/home' do
     puts params[:pattern]
     @caroline = User.new(params[:initials], params[:pattern], params[:font_color], params[:background_color], params[:border_color], params[:background_image], params[:font])
     redirect('/monogram')
