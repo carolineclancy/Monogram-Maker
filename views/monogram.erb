@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css text-align: center">
+  <title>Monogram</title>
+  <body style=" text-align: center;
+    <%if @caroline.background_image.kind_of? String and @caroline.background_image != "" %>
+      background-image: url('<%= @caroline.background_image%>');
+    <% else %>
+      background-image: url('<%= @caroline.pattern%>');
+    <%end%>
+    ">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+
+            <h2 style=" margin-top: 230px; background-color: <%= @caroline.background_color %>; display:inline-block; font-size: 500px; text-align: center; padding: 20px; padding-right: 35px; padding-top: 55px; padding-bottom: 50px; border-radius: 50%; font-size: 30px; border-style: solid; border-color: <%= @caroline.border_color %>;" ><strong>
+              <% if @caroline.initials.length <= 3 %>
+                <% @caroline.initials.upcase! %>
+                <% @caroline.initials.split(//) %>
+
+                  <% if @caroline.font == "England Hand DB" %>
+   
+                    <% if @caroline.initials[1] != "C" or "E"%>
+                      <font face="<%= @caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 300%;"><%= @caroline.initials[0]%></font>
+                      <font face="<%= @caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 550%;"><%= @caroline.initials[1]%></font>
+                      <font face="<%= @caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 300%;"><%= @caroline.initials[2]%></font>
+
+                    <% else %>
+                      <font face="<%= @caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 300%; padding-left: 10px"><%= @caroline.initials[0]%></font>
+                      <font face="<%= @caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 600%;"><%= @caroline.initials[1]%></font>
+                      <font face="<%=@caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 300%; padding-right: 30px;"><%= @caroline.initials[2]%></font>
+                    <% end %>
+                <% elsif @caroline.font != "England Hand DB" %>
+                      <font face="<%= @caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 300%;"><%= @caroline.initials[0]%></font>
+                      <font face="<%= @caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 550%;" ><%= @caroline.initials[1]%></font>
+                      <font face="<%= @caroline.font %>" color="<%= @caroline.font_color %>" style="font-size: 300%;"><%= @caroline.initials[2]%></font>
+                <% end %>
+              <% else %>
+                <%= "Error: Invalid number of initials." %>
+              <% end %>
+          </strong></h2>
+        </div>
+      </div>
+    </div>
+  </body>
+
+</html>

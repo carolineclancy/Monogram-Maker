@@ -1,0 +1,122 @@
+<!doctype html>
+
+<html>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link href='http://fonts.googleapis.com/css?family=Playfair+Display+SC' rel='stylesheet' type='text/css'>
+
+  <title> Monogram Maker </title>
+
+
+  <head>
+    <div class="container">
+      <div class = "row">
+        <div class = "col-lg-12 text-center">
+          <h1><font face="URW Bookman L" size="200%px"> MONOGRAM MAKER </h1></font>
+        </div>
+      </div>
+  </head>
+
+
+  <body>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+    <div class="container">
+      <div class = "row">
+        <div class = "col-lg-12 text-center">
+          <p><font face="URW Bookman L"> 1. Type in your name or initials </p>
+          <p> 2. Pick a font color </p>
+          <p> 3. Upload a picture or select a pattern </p></font>
+        </div>
+      </div>
+
+
+    <form role="form" action="/monogram" method="POST" >
+      <div class = "row">
+        <div class = "text-center">
+        <div class = "col-lg-12 text-center" style="text-align: center; width: 400px; margin-left: 375px">
+          <div class="form-group">
+            <label for="exampleInputInitials"><font face="URW Bookman L">Initials</label></font>
+            <input type="text" class="form-control" id="exampleInputName" placeholder="Enter initials" name="initials">
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class = "text-center">
+            <p> </p>
+            <font face="URW Bookman L"> Font Color:
+            <input type="color" name="font_color" align="text-center">
+
+            Background Color:
+            <input type="color" name="background_color" align="text-center" value="#ffffff">
+
+            Border Color:
+            <input type="color" name="border_color" align="text-center"></font
+          </div>
+        </div>
+      </div>
+      <div class="row">
+      <div class = "text-center">
+        <div class = "col-lg-12 text-center" style="text-align: center; width: 400px; margin-left: 380px">
+          <div class="form-group">
+            <label for="exampleInputInitials"><font face="URW Bookman L">Image URL</font></label>
+            <input type="text" class="form-control" id="exampleInputName" placeholder="Enter image URL" name="background_image">
+          </div>
+          </div>
+        </div>
+      </div>
+      <p>
+      <% @fonts = ["England Hand DB", "Monogram kk sc", "Sawasdee"] %>
+        
+        <% @fonts.each do |font| %>
+          <div class = "col-md-4" style="text-align: center; padding: -10px">
+            <div class="checkbox">
+              <label>
+                <input type="radio" name="font" value= "<%= font %>" class="pull-left" role="button"/></a><br>
+                <font face= "<%= font %>" size="150%"> ABC </font>
+              </label>
+            </div>
+          </div>
+        <% end %>
+      </p>
+
+
+      <p>
+      <% @patterns = ["http://www.hawthornethreads.com/images/camelot_cottons/300/jacqueline_savage_mcfee_paisley_please_preppy_harlequin_in_navy.jpg",
+        "http://3.bp.blogspot.com/-2xrloB1ddhQ/Ud6_VZjhXJI/AAAAAAAAAH8/lnMuybGDc2Y/s1600/GetNautiWallpaper.jpg", "http://24.media.tumblr.com/tumblr_m98pnzD5FB1qzza12o1_500.png",
+        "http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0175/9202/rTurquoise_mirror_preview.png",
+        "http://www.polyvore.com/cgi/img-thing?.out=jpg&size=l&tid=59758608",
+        "http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0240/8753/rrrrrblueprep_mirror.png",
+        "http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0175/6986/rrHot_Pink_shop_thumb.png",
+        "http://media-cache-ak0.pinimg.com/236x/ec/14/37/ec143734abd9212a3cedcdd706962a0e.jpg",
+        "https://s-media-cache-ak0.pinimg.com/236x/0f/d9/07/0fd9076da994c4e646b1874c66b80436.jpg",
+        "http://clickyooo.com/wp-content/uploads/2014/09/vineyard-vines-wallpaper-1.jpg",
+        "http://visualingual.files.wordpress.com/2012/02/pulitzer2.jpg?w=450",
+        "https://s-media-cache-ak0.pinimg.com/236x/e4/1f/c5/e41fc58ef4c8b0b0dda2b1ec3b0ed843.jpg"] %>
+        <% @patterns.each do |pattern| %>
+          <div class = "col-md-4">
+            <div class="checkbox">
+              <label>
+                <input type="radio" name="pattern" value= "<%= pattern %>"> <img src= "<%= pattern %>" class="pull-left" role="button" height="300" width="300"/></a><br>
+              </label>
+            </div>
+          </div>
+        <% end %>
+      </p>
+
+
+
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <div class = "text-center" style="padding-bottom: 15px">
+            <font face="URW Bookman L"><input type="submit" align="text-center" style="height:50px; width:250px; background-color: pink; font-size: 30px"></font>
+          </div>
+        </div>
+      </div>
+      </form>
+    </div>
+  </body>
+</html>
