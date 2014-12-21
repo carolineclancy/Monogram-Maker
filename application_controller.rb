@@ -29,4 +29,8 @@ class MyApp < Sinatra::Base
     erb :monogram
   end
 
+  get '/about' do
+    erb :about
+  end
+
 end
